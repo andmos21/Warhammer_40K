@@ -17,13 +17,20 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 		float GridHeight() const;
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 		float GridWidth() const;
 
-	//UFUNCTION(BlueprintCallable, BlueprintPure)
-		//bool TileValid(int Row, int Column);
+	UFUNCTION(BlueprintCallable)
+		bool TileValid(const int Row, const int Column);
+
+	UFUNCTION(BlueprintCallable)
+		void TiletoGridLocation(const int Row, const int Column, bool Center, bool &Valid, FVector2D &GridLocation);
+	UFUNCTION(BlueprintCallable)
+		void LocationtoTile(FVector Location, bool& Valid, int& Row, int& Column);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

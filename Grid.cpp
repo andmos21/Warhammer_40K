@@ -30,14 +30,32 @@ float AGrid::GridWidth() const
 	return value;
 }
 
-/*bool AGrid::TileValid(int Row, int Column)
+bool AGrid::TileValid(int Row, int Column)
 {
 	if (((Row >= 0) && (Row < NumRows)) && ((Column >= 0) && (Column<NumColumns)))
 	{
 		return true;
 	}
 	return false;
-}*/
+}
+
+void AGrid::TiletoGridLocation(const int Row, const int Column, bool Center, bool& Valid, FVector2D& GridLocation)
+{
+	Valid = TileValid(Row, Column);
+	float TileValidation = Center ? TileSize / 2 : 0;
+	GridLocation = { (((Row * TileSize) + AActor::GetActorLocation().X) + TileValidation), 
+				  (((Column * TileSize) + AActor::GetActorLocation().Y) + TileValidation) };
+}
+
+void AGrid::LocationtoTile(FVector Location, bool& Valid, int& Row, int& Column)
+{
+	int row_ = ((Location.X - AActor::GetActorLocation().X) / GridWidth())* NumRows;
+	int column_ = ((Location.Y - AActor::GetActorLocation().Y) / GridHeight())* NumColumns;
+	Valid = TileValid(row_, column_);
+	Row = row_;
+	Column= column_;
+}
+
 
 
 // Called every frame
