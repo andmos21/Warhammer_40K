@@ -28,6 +28,9 @@ protected:
 		void LocationToTile(FVector Loctation, bool& Valid, int32& Row, int32& Column);
 	UFUNCTION(BlueprintCallable)
 		void TileToGridLocation(int32 Row, int32 Column, bool Center, bool& Valid, FVector2D& GridLocation);
+
+	//UFUNCTION(BlueprintCallable)
+	//	void CreateLine(FVector Start, FVector End, float Thickness, const TArray<FVector> Vertices, TArray<int32> Triangles);
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

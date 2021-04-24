@@ -2,7 +2,9 @@
 
 
 #include "Grid.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "Math/UnrealMathUtility.h"
+#include "Kismet/KismetArrayLibrary.h"
 
 // Sets default values
 AGrid::AGrid()
@@ -57,6 +59,31 @@ void AGrid::TileToGridLocation(int32 Row, int32 Column, bool Center, bool& Valid
 	GridLocation.X = (Row * TileSize) + AActor::GetActorLocation().X + TileToGridCenter;
 	GridLocation.Y = (Column * TileSize) + AActor::GetActorLocation().Y + TileToGridCenter;
 }
+
+/*
+void AGrid::CreateLine(FVector Start, FVector End, float Thickness,const TArray<FVector> Vertices, TArray<int32> Triangles)
+{
+	float HalfThichness = Thickness / 2;
+	FVector ThichnessDirection = UKismetMathLibrary::Cross_VectorVector(UKismetMathLibrary::Normal(End - Start, 0.0001), { 0.0f, 0.0f, 1.0f });
+
+	TArray<int32> tArray;
+	tArray[0] = Vertices.Num() + 2;
+	tArray[1] = Vertices.Num() + 1;
+	tArray[2] = Vertices.Num() + 0;
+	tArray[3] = Vertices.Num() + 2;
+	tArray[4] = Vertices.Num() + 3;
+	tArray[5] = Vertices.Num() + 1;
+	UKismetArrayLibrary::Array_Append(Triangles, tArray);
+
+	TArray<FVector> vArray;
+	vArray[0] = Start + (ThichnessDirection * HalfThichness);
+	vArray[1] = End + (ThichnessDirection * HalfThichness);
+	vArray[2] = Start - (ThichnessDirection * HalfThichness);
+	vArray[3] = End - (ThichnessDirection * HalfThichness);
+	//UKismetArrayLibrary::Array_Append(Vertices, vArray);
+	FOccluderVertexArray::Append(Vertices, vArray);
+}
+*/
 
 
 // Called every frame
