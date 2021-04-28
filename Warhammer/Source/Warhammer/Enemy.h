@@ -32,23 +32,31 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+
+	//What Phase this unit is on
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int Phase = 0;
 
+	//How many hits this unit can take
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int Wound = 2;
+
+	//How far this unit can move
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int MovementAllowance = 4;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int MovementUsed = 0;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool CanMove = false;
 
+	//The tile the actor wishes to move to
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int GridGoalX = -1;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int GridGoalY = -1;
 
-
+	//The tile the actor currently stands in
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int GridX = -1;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int GridY = -1;
 };

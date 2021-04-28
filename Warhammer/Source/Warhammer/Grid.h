@@ -10,7 +10,7 @@ UCLASS()
 class WARHAMMER_API AGrid : public AActor
 {
 	GENERATED_BODY()
-public:	
+public:
 	// Sets default values for this actor's properties
 	AGrid();
 
@@ -22,16 +22,23 @@ protected:
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 		float GridWidth() const;
 
-	//UFUNCTION(BlueprintCallable, BlueprintPure)
-		//bool TileValid(int Row, int Column);
-public:	
+	UFUNCTION(BlueprintCallable)
+		bool TileValid(int Row, int Column);
+	UFUNCTION(BlueprintCallable)
+		void LocationToTile(FVector Loctation, bool& Valid, int32& Row, int32& Column);
+	UFUNCTION(BlueprintCallable)
+		void TileToGridLocation(int32 Row, int32 Column, bool Center, bool& Valid, FVector2D& GridLocation);
+
+	//UFUNCTION(BlueprintCallable)
+	//	void CreateLine(FVector Start, FVector End, float Thickness, const TArray<FVector> Vertices, TArray<int32> Triangles);
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		int NumRows = 10;
+		int32 NumRows = 10;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		int NumColumns = 10;
+		int32 NumColumns = 10;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		float TileSize = 200.0;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
