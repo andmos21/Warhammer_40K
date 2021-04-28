@@ -10,7 +10,7 @@ UCLASS()
 class WARHAMMER_API AGrid : public AActor
 {
 	GENERATED_BODY()
-public:	
+public:
 	// Sets default values for this actor's properties
 	AGrid();
 
@@ -30,8 +30,8 @@ protected:
 		void TileToGridLocation(int32 Row, int32 Column, bool Center, bool& Valid, FVector2D& GridLocation);
 
 	//UFUNCTION(BlueprintCallable)
-	//	void CreateLine(FVector Start, FVector End, float Thickness, const TArray<FVector> Vertices, TArray<int32> Triangles);
-public:	
+	//	void CreateLine(FVector Start, FVector End, float Thickness, const TArray<FVector>& Vertices, TArray<int32>& Triangles);
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 protected:

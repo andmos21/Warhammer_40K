@@ -24,8 +24,16 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int Phase = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int MovementAllowance = 6;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int MovementUsed = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString CurrentPhaseName = "MovePhase";
@@ -33,6 +41,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool ManualPhaseAdvance = true;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool CanMove = false;
 
 	//Main Function that decides which phase the game is in
 	void HandlePhases();

@@ -68,11 +68,17 @@ void UPhaseHandler::ToMovePhase()
 	Phase = 2;
 	CurrentPhaseName = "MovePhase";
 	ManualPhaseAdvance = true;
+	CanMove = true;
+	MovementUsed = 0;
 }
 
 void UPhaseHandler::MovePhase()
 {
-
+	if (MovementUsed >= MovementAllowance)
+	{
+		CanMove = false;
+		
+	}
 }
 
 void UPhaseHandler::ToAttackPhase()
@@ -80,6 +86,7 @@ void UPhaseHandler::ToAttackPhase()
 	Phase = 4;
 	CurrentPhaseName = "AttackPhase";
 	ManualPhaseAdvance = true;
+	CanMove = false;
 }
 
 void UPhaseHandler::AttackPhase()
