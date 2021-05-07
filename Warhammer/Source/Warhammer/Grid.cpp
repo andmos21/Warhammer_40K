@@ -61,11 +61,11 @@ void AGrid::TileToGridLocation(int32 Row, int32 Column, bool Center, bool& Valid
 }
 
 /*
-void AGrid::CreateLine(FVector Start, FVector End, float Thickness,const TArray<FVector> &Vertices, TArray<int32> &Triangles)
+void AGrid::CreateLine(FVector Start, FVector End, float Thickness, const TArray<FVector>& Vertices, TArray<int32> Triangles)
 {
 	float HalfThichness = Thickness / 2;
 	FVector ThichnessDirection = UKismetMathLibrary::Cross_VectorVector(UKismetMathLibrary::Normal(End - Start, 0.0001), { 0.0f, 0.0f, 1.0f });
-	
+
 	TArray<int32> tArray;
 	tArray.Add(Vertices.Num() + 2);
 	tArray.Add(Vertices.Num() + 1);
@@ -73,21 +73,17 @@ void AGrid::CreateLine(FVector Start, FVector End, float Thickness,const TArray<
 	tArray.Add(Vertices.Num() + 2);
 	tArray.Add(Vertices.Num() + 3);
 	tArray.Add(Vertices.Num() + 1);
-	Triangles.Append(tArray);
+	tArray.Append(Triangles);
 
+	
 	TArray<FVector> vArray;
 	vArray.Add(Start + (ThichnessDirection * HalfThichness));
 	vArray.Add(End + (ThichnessDirection * HalfThichness));
 	vArray.Add(Start - (ThichnessDirection * HalfThichness));
 	vArray.Add(End - (ThichnessDirection * HalfThichness));
 	vArray.Append(Vertices);
-	//Vertices.Append(vArray);
-	//UKismetArrayLibrary::Array_Append(Vertices, vArray);
-	//FOccluderVertexArray::Append(Vertices, vArray);
 }
 */
-
-
 
 
 // Called every frame
