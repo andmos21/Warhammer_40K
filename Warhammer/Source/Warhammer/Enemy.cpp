@@ -47,6 +47,9 @@ void AEnemy::HandlePhase()
 	case 2:
 		MovePhase();
 		return;
+
+	case 4:
+		return;
 	default:
 		return;
 	}

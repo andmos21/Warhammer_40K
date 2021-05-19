@@ -35,14 +35,25 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int MovementUsed = 0;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int GridXLocation = 0;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int GridYLocation = 0;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString CurrentPhaseName = "MovePhase";
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ACharacter* TargetEnemy = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool ManualPhaseAdvance = true;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool CanMove = false;
+
+	int Health = 1;
 
 	//Main Function that decides which phase the game is in
 	void HandlePhases();

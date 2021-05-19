@@ -2,6 +2,7 @@
 
 
 #include "PhaseHandler.h"
+#include "Enemy.h"
 
 // Sets default values for this component's properties
 UPhaseHandler::UPhaseHandler()
@@ -29,7 +30,9 @@ void UPhaseHandler::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	HandlePhases();
+	if (Health>0)
+		HandlePhases();
+
 	// ...
 }
 
@@ -91,6 +94,14 @@ void UPhaseHandler::ToAttackPhase()
 
 void UPhaseHandler::AttackPhase()
 {
+	if (TargetEnemy != nullptr)
+	{
+		int EnemyX = Cast<AEnemy>(TargetEnemy)->GridX;
+		int EnemyY = Cast<AEnemy>(TargetEnemy)->GridY;
+		int UnitX = GridXLocation;
+		int UnitY = GridYLocation;
 
+
+	}
 }
 
