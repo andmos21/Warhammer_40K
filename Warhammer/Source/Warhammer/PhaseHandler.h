@@ -50,9 +50,13 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool ManualPhaseAdvance = true;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool CanMove = false;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool CanAttack = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int Health = 1;
 
 	//Main Function that decides which phase the game is in
