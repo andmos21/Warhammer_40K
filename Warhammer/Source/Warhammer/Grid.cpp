@@ -11,7 +11,6 @@ AGrid::AGrid()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
@@ -77,13 +76,22 @@ void AGrid::CreateLine(FVector Start, FVector End, float Thickness, const TArray
 
 	
 	TArray<FVector> vArray;
-	vArray.Add(Start + (ThichnessDirection * HalfThichness));
-	vArray.Add(End + (ThichnessDirection * HalfThichness));
-	vArray.Add(Start - (ThichnessDirection * HalfThichness));
-	vArray.Add(End - (ThichnessDirection * HalfThichness));
+	vArray.Add(ThichnessDirection * HalfThichness + Start);
+	vArray.Add(ThichnessDirection * HalfThichness + End);
+	vArray.Add(ThichnessDirection * HalfThichness - Start);
+	vArray.Add(ThichnessDirection * HalfThichness - End);
 	vArray.Append(Vertices);
 }
+void AGrid::CreateMaterialInstance(FLinearColor Color, float Opacity)
+{
+	UKismetMaterialLibrary::CreateDynamicMaterialInstance(this, mGridColor);
+	UKismetMaterialLibrary::SetVectorParameterValue(this, M_Matrial_Prams, FName("Color"), Color);
+}
 */
+
+
+
+
 
 
 // Called every frame

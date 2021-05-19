@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Kismet/KismetMaterialLibrary.h"
 #include "Grid.generated.h"
 
 UCLASS()
@@ -28,9 +29,14 @@ protected:
 		void LocationToTile(FVector Loctation, bool& Valid, int32& Row, int32& Column);
 	UFUNCTION(BlueprintCallable)
 		void TileToGridLocation(int32 Row, int32 Column, bool Center, bool& Valid, FVector2D& GridLocation);
+	/*
+		UFUNCTION(BlueprintCallable)
+		void CreateLine(FVector Start, FVector End, float Thickness, const TArray<FVector>& Vertices, TArray<int32> Triangles);
 
-//	UFUNCTION(BlueprintCallable)
-//		void CreateLine(FVector Start, FVector End, float Thickness, const TArray<FVector>& Vertices, TArray<int32> Triangles);
+	UFUNCTION(BlueprintCallable)
+		void CreateMaterialInstance(FLinearColor Color, float Opacity);
+	*/
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -53,4 +59,16 @@ protected:
 		float LineOpacity = 1.0;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		float SelectionOpacity = 0.25;
+
+	/*
+		UPROPERTY(EditAnywhere)
+		USceneComponent* Grid;
+
+	UPROPERTY(EditAnywhere)
+		UMaterialInterface* mGridColor;
+
+	UPROPERTY(EditAnywhere)
+		UMaterialParameterCollection* M_Matrial_Prams;
+	*/
+
 };
