@@ -53,7 +53,6 @@ void UPhaseHandler::HandlePhases()
 		AttackPhase();
 		return;
 	default:
-		Phase = 1;
 		return;
 	}
 }
